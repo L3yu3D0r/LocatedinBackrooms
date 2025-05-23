@@ -1,6 +1,6 @@
 # LocatedinBackrooms
 
-> [WARNING]
+> [!WARNING]
 > This project is still in development and may not work as expected.
 
 ## build
