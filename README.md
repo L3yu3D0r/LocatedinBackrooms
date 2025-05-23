@@ -1,5 +1,8 @@
 # LocatedinBackrooms
 
+> [WARNING]
+> This project is still in development and may not work as expected.
+
 ## build
 
 1. cd `deps/libuv`
