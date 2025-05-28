@@ -8,6 +8,9 @@
 int main(int, char**) {
     al::Scoped_Log_Init raii;
     al::log_i("Game initing");
-
+    Game game = Game::getInstance();
+    game.init();
+    game.run();
+    al::log_i("Game quitting");
     return 0;
 }
