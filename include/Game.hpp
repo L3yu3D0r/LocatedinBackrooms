@@ -2,8 +2,7 @@
 #define GAME_H
 
 #include "Define.hpp"
-
-class SceneMain;  // 前向声明
+#include "Scenes.hpp"
 
 class Game
 {
@@ -43,7 +42,7 @@ public:
             }
         }
     };
-    void Game::init()
+    void init()
     {
         // al 初始化
         al::Scoped_Log_Init raii;
@@ -88,29 +87,54 @@ public:
             isRunning = false;
         }
         // currentScene将在源文件中初始化
+        currentScene = new Logo_and_Title_Screen();
+        currentScene->init(window, renderer);
+        // 计算帧率
+        frameTime = 1000 / FPS; // 计算每帧的目标时间（毫秒）
+        deltaTime = 0.0f;      // 初始化deltaTime为0
     };
     void clean()
     {
         SDL_Quit();
     };
-    void changeScene(Scene *scene) {   
+    void changeScene(Scene *scene)
+    {
+        if (currentScene != nullptr)
+        {
+            currentScene->clean();
+            delete currentScene;
+        }
+        currentScene = scene;
+        currentScene->init(window, renderer);
     };
-    void handleEvent(SDL_Event *event) {
+    void handleEvent(SDL_Event *event)
+    {
+        while (SDL_PollEvent(event))
+        {
+            if (event->type == SDL_QUIT)
+            {
+                isRunning = false;
+            }
+            currentScene->handleEvent(event);
+        }
     };
     void update(float deltaTime) {
+        change_scene ret = currentScene->update(deltaTime);
+        if (ret.code) {
+            changeScene(ret.scene);
+        }
     };
     void render() {
+        SDL_RenderClear(renderer);
+        currentScene->render();
+        SDL_RenderPresent(renderer);
     };
 
 private:
     Game &operator=(const Game &) = delete;
-    bool isRunning = true;
     Scene *currentScene = nullptr;
     SDL_Window *window = nullptr;
     SDL_Renderer *renderer = nullptr;
-    int windowWidth = 600;
-    int windowHeight = 800;
-    int FPS = 60;     // 目标帧率
     Uint32 frameTime; // 每帧的目标时间（毫秒）
     float deltaTime;
 };
