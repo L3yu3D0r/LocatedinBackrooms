@@ -90,7 +90,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "D:/libs/SDL2-devel-2.32.6-VC/SDL2-2.32.6/cmake/../include" /external:I "D:/libs/SDL2_image-devel-2.8.8-VC/SDL2_image-2.8.8/cmake/../include" /external:I "D:/libs/SDL2_mixer-devel-2.8.1-VC/SDL2_mixer-2.8.1/cmake/../include" /external:I "D:/libs/SDL2_ttf-devel-2.24.0-VC/SDL2_ttf-2.24.0/cmake/../include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -112,30 +112,18 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message>Copying uv.dll to output directory</Message>
-      <Command>setlocal
-D:\software\CMake\bin\cmake.exe -E copy D:/programmingprojects/LocatedinBackrooms/deps/libuv/build/Release/uv.dll D:/programmingprojects/LocatedinBackrooms
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;D:\programmingprojects\LocatedinBackrooms\deps\libuv\build\Release\uv.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -150,7 +138,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "D:/libs/SDL2-devel-2.32.6-VC/SDL2-2.32.6/cmake/../include" /external:I "D:/libs/SDL2_image-devel-2.8.8-VC/SDL2_image-2.8.8/cmake/../include" /external:I "D:/libs/SDL2_mixer-devel-2.8.1-VC/SDL2_mixer-2.8.1/cmake/../include" /external:I "D:/libs/SDL2_ttf-devel-2.24.0-VC/SDL2_ttf-2.24.0/cmake/../include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -173,30 +161,18 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message>Copying uv.dll to output directory</Message>
-      <Command>setlocal
-D:\software\CMake\bin\cmake.exe -E copy D:/programmingprojects/LocatedinBackrooms/deps/libuv/build/Release/uv.dll D:/programmingprojects/LocatedinBackrooms
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;D:\programmingprojects\LocatedinBackrooms\deps\libuv\build\Release\uv.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -211,7 +187,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "D:/libs/SDL2-devel-2.32.6-VC/SDL2-2.32.6/cmake/../include" /external:I "D:/libs/SDL2_image-devel-2.8.8-VC/SDL2_image-2.8.8/cmake/../include" /external:I "D:/libs/SDL2_mixer-devel-2.8.1-VC/SDL2_mixer-2.8.1/cmake/../include" /external:I "D:/libs/SDL2_ttf-devel-2.24.0-VC/SDL2_ttf-2.24.0/cmake/../include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -234,30 +210,18 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message>Copying uv.dll to output directory</Message>
-      <Command>setlocal
-D:\software\CMake\bin\cmake.exe -E copy D:/programmingprojects/LocatedinBackrooms/deps/libuv/build/Release/uv.dll D:/programmingprojects/LocatedinBackrooms/build/MinSizeRel
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;D:\programmingprojects\LocatedinBackrooms\deps\libuv\build\Release\uv.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -272,7 +236,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "D:/libs/SDL2-devel-2.32.6-VC/SDL2-2.32.6/cmake/../include" /external:I "D:/libs/SDL2_image-devel-2.8.8-VC/SDL2_image-2.8.8/cmake/../include" /external:I "D:/libs/SDL2_mixer-devel-2.8.1-VC/SDL2_mixer-2.8.1/cmake/../include" /external:I "D:/libs/SDL2_ttf-devel-2.24.0-VC/SDL2_ttf-2.24.0/cmake/../include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -294,30 +258,18 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\deps\libuv\include;D:\programmingprojects\LocatedinBackrooms\deps\asynclog;D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\programmingprojects\LocatedinBackrooms\include;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\include;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\include;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\include;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message>Copying uv.dll to output directory</Message>
-      <Command>setlocal
-D:\software\CMake\bin\cmake.exe -E copy D:/programmingprojects/LocatedinBackrooms/deps/libuv/build/Release/uv.dll D:/programmingprojects/LocatedinBackrooms/build/RelWithDebInfo
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;D:\programmingprojects\LocatedinBackrooms\deps\libuv\build\Release\uv.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2main.lib;D:\libs\SDL2-devel-2.32.6-VC\SDL2-2.32.6\cmake\..\lib\x64\SDL2.lib;D:\libs\SDL2_image-devel-2.8.8-VC\SDL2_image-2.8.8\cmake\..\lib\x64\SDL2_image.lib;D:\libs\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\cmake\..\lib\x64\SDL2_mixer.lib;D:\libs\SDL2_ttf-devel-2.24.0-VC\SDL2_ttf-2.24.0\cmake\..\lib\x64\SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -389,7 +341,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D:\programmingprojects\LocatedinBackrooms\src\main.cpp" />
-    <ClCompile Include="D:\programmingprojects\LocatedinBackrooms\deps\asynclog\log.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

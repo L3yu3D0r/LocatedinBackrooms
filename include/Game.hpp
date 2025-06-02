@@ -44,8 +44,6 @@ public:
     };
     void init()
     {
-        // al 初始化
-        al::Scoped_Log_Init raii;
         // SDL 初始化
         if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
         {
@@ -71,7 +69,8 @@ public:
             isRunning = false;
         }
 
-        al::log_d("Init sucessfully");
+        MapleMono_Regular_24 = TTF_OpenFont("assets/MapleMono-TTF/MapleMono-Regular.ttf", 24);
+        VonwaonBitmap_16px_24 = TTF_OpenFont("assets/VonwaonBitmap-16px.ttf", 24);
         // 创建窗口
         window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowWidth, windowHeight, SDL_WINDOW_SHOWN);
         if (window == nullptr)
@@ -125,7 +124,9 @@ public:
         }
     };
     void render() {
-        SDL_RenderClear(renderer);
+        if (!renderNoClean) {
+            SDL_RenderClear(renderer);
+        }
         currentScene->render();
         SDL_RenderPresent(renderer);
     };

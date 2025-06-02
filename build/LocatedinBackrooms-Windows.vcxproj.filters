@@ -4,9 +4,6 @@
     <ClCompile Include="D:\programmingprojects\LocatedinBackrooms\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\programmingprojects\LocatedinBackrooms\deps\asynclog\log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\programmingprojects\LocatedinBackrooms\CMakeLists.txt" />

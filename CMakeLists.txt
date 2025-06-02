@@ -26,33 +26,15 @@ find_package(SDL2_mixer REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
 # 添加头文件路径
-include_directories("deps/libuv/include" "deps/asynclog" "include")
+include_directories("include")
 
 # 添加可执行文件
 add_executable(${TARGET} 
-                "src/main.cpp"
-                "deps/asynclog/log.cpp")
+                "src/main.cpp")
 
 # 链接库
-if(WIN32)
-    target_link_libraries(${TARGET}
-                        ${SDL2_LIBRARIES}
-                        SDL2_image::SDL2_image
-                        SDL2_mixer::SDL2_mixer
-                        SDL2_ttf::SDL2_ttf
-                        "${CMAKE_SOURCE_DIR}/deps/libuv/build/Release/uv.lib")
-    
-    # 复制dll到输出目录
-    add_custom_command(TARGET ${TARGET} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-            "${CMAKE_SOURCE_DIR}/deps/libuv/build/Release/uv.dll"
-            $<TARGET_FILE_DIR:${TARGET}>
-        COMMENT "Copying uv.dll to output directory")
-else()
-    target_link_libraries(${TARGET}
-                        ${SDL2_LIBRARIES}
-                        SDL2_image::SDL2_image
-                        SDL2_mixer::SDL2_mixer
-                        SDL2_ttf::SDL2_ttf
-                        "${CMAKE_SOURCE_DIR}/deps/libuv/build/libuv.a")
-endif()
+target_link_libraries(${TARGET}
+                    ${SDL2_LIBRARIES}
+                    SDL2_image::SDL2_image
+                    SDL2_mixer::SDL2_mixer
+                    SDL2_ttf::SDL2_ttf)

@@ -44,6 +44,10 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "list": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "numeric": "cpp",
+        "iostream": "cpp",
+        "xmemory": "cpp",
+        "xstring": "cpp"
     }
 }
